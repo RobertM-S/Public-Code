@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pending Orders</title>
+    <style>
+        body {
+            background-color: #aaacab;
+            font-size: 18px;
+            min-height: 400px;
+            margin-bottom: 100px;
+            clear: both;
+        }
+        body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages > li { padding: 0.5rem 1rem; }
+        #messages > li:nth-child(odd) { background: #efefef; }
+
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            border: none;
+            text-align: center;
+            outline: none;
+            font-size: 18px;
+            width: 100%;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            width: 100%;
+        }
+
+        body {
+            background-color: #aaacab;
+        }
+        #topBar{
+            position:absolute;
+            left:0px;
+            top:0px;
+        }
+
+        .title{
+            position:absolute;
+            left:20px;
+            top:-6px;
+            color:white
+        }
+        .LogOut{
+            position:relative;
+            left:1600px;
+            top:25px;
+            color:white
+
+        }
+
+        .button {
+            background-color: #808080;
+            border: none;
+            color: white;
+            padding: 15px 70px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 15px 20px;
+        }
+         .button:hover{
+             background-color: #555;
+         }
+
+        .button3 {
+            border: 2px solid #ba0000;
+            width: 100px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .button3:hover {
+            background-color: #ba0000;
+            color: white;
+        }
+
+        .button4 {
+            border: 2px solid #786eff;
+            width: 100px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .button4:hover {
+            background-color: #786eff;
+            color: white;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 95%;
+            margin: 75px 0 0 25px;
+        }
+
+        .button3:hover {
+            background-color: #ba0000;
+            color: white;
+        }
+        tbody, table{
+            table-layout:fixed;
+        }
+        tr:nth-child(odd) {
+            background-color: #dddddd;
+        }
+
+        .button4 {
+            border: 2px solid #786eff;
+            width: 100px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .button4:hover {
+            background-color: #786eff;
+            color: white;
+        }
+        .alert {
+            position: fixed;
+            bottom: 0%;
+            width: 100%;
+            padding: 20px;
+            background-color: #2496ab;
+            color: white;
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #aaacab;
+            color: white;
+            text-align: center;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        input[type="checkbox"] {
+            zoom: 1.5;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" charset="utf-8"></script>
+</head>
+<div id='topBar' style="height:70px;width:100%;background:grey"></div>
+<h1 class='title' id="title">Pending Orders</h1>
+<div class="LogOut">
+    <button class="button3" onclick="window.location.assign('/Staff_Portal')">Staff Portal</button>
+    <button class="button4" style="alignment: right" onclick="clearCookie(socket)">Logout</button>
+</div>
+<body>
+<table id="orders">
+    <tr style="font-size: larger">
+        <th>Dish</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Selected</th>
+    </tr>
+</table>
+
+<div class="footer">
+    <button type="button" id = "cancel" class = "button" value = "Cancelled" onclick="ConfirmOrder(this.id, this.value)">Cancel Order</button>
+    <button type="button" id = "confirm" class = "button" value = "Confirmed" onclick="ConfirmOrder(this.id, this.value)">Confirm Order</button>
+    <button type="button" id = "delivered" class = "button" value = "Delivered" onclick="delivered(this.id, this.value)">Delivered</button>
+</div>
+<ul id="messages"></ul>
+<div class="alert" id="alert" hidden="true">
+    <span class="closebtn" onclick=hide()>&times;</span>
+    <strong style="font-size: 1vw;">Table Alert:</strong><p id="alertMessage" style="font-size: 1vw; right: auto">Table X needs Help</p>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="static/WebPageScripts/pendingOrders/pendingOrders.js"></script>
+<script type="text/javascript" src="static/WebPageScripts/pendingOrders/updateOrder.js"></script>
+
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/AuthenticateUser.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/requestUsername.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/getCookie.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/clearCookie.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/bower_components/jsencrypt/bin/jsencrypt.min.js"></script>
+<script type="text/javascript" src="/static/WebPageScripts/keyEncrypt.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/keyDecrypt.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./static/WebPageScripts/newOrders.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./static/WebPageScripts/clientHelp&isReadyAlerts.js" charset="UTF-8"></script>
+
+<script type="text/javascript" src="static/WebPageScripts/pendingOrders/pendingOrdersBase.js"></script>
+
+</body>
+</html>

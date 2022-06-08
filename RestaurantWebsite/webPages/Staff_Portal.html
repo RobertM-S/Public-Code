@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Staff Login</title>
+</head>
+
+<style type="text/css">
+    #topBar{
+        position:absolute;
+        left:0px;
+        top:0px;
+    }
+
+    .Buttons{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: large;
+        font-family: Arial, sans-serif;
+        clear: both;
+    }
+
+    .button {
+        width: fit-content;
+        margin: 10px;
+        border: black;
+        color: black;
+        padding: 16px 32px;
+        align-self: center;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1.5vw;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        background-color: white;
+    }
+
+    .title{
+        position:absolute;
+        left:20px;
+        top:-6px;
+        color:white
+    }
+
+    #background{
+        position:absolute;
+        left:-10px;
+        top:-100px
+    }
+
+    #BackToMenu{
+        position:absolute;
+        left:1780px;
+        top:25px;
+        color:white
+
+    }
+
+
+    .button0 {
+        margin: 6px;
+        border: 2px solid #000000;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button0:hover {
+        background-color: #000000;
+        color: white;
+    }
+
+    .button1 {
+        border: 2px solid #4caf50;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button1:hover {
+        background-color: #4caf50;
+        color: white;
+    }
+
+    .button2 {
+        align-self: center;
+        border: 2px solid #008cba;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button2:hover {
+        background-color: #008cba;
+        color: white;
+    }
+
+    .button3 {
+        margin: 6px;
+        border: 2px solid #ba0000;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button3:hover {
+        background-color: #ba0000;
+        color: white;
+    }
+
+    .button4 {
+        margin: 6px;
+        border: 2px solid #786eff;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button4:hover {
+        background-color: #786eff;
+        color: white;
+    }
+
+    #LogOut{
+        position:absolute;
+        left:1780px;
+        top:25px;
+        color:white
+
+    }
+    .alert {
+        position: fixed;
+        bottom: 0%;
+        width: 100%;
+        padding: 20px;
+        background-color: #2496ab;
+        color: white;
+    }
+</style>
+<body>
+<img id=background src=static/WebPageImages/LoginPage/Login_Banner.jpg style="width: 100%">
+<a href='https://www.freepik.com/vectors/food'>Food vector created by pch.vector - www.freepik.com</a>
+<div id='topBar' style="height:70px;width:100%;background:grey"></div>
+<h1 class='title' id="title">Staff Login</h1>
+<div ID=LogOut>
+    <button class="button4" onclick="clearCookie(socket)">Logout</button>
+</div>
+<div class="Buttons" id="buttons">
+    <div>
+        <button id="Pending_Tables" class="button button0">Pending Tables</button>
+        <button id="Pending_Orders" class="button button1" >Pending Orders</button>
+        <button id="Kitchen" class="button button2" >Kitchen</button>
+    </div>
+    <div id="managerButtons"></div>
+</div>
+
+<div class="alert" id="alert" hidden="true">
+    <span class="closebtn" onclick=hide()>&times;</span>
+    <strong style="font-size: 1vw;">Table Alert:</strong><p id="alertMessage" style="font-size: 1vw; right: auto">Table X needs Help</p>
+</div>
+
+</body>
+<script src="/socket.io/socket.io.js"></script>
+
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/AuthenticateUser.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/requestUsername.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/getCookie.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/clearCookie.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/staff_portal/addManagerButtons.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/bower_components/jsencrypt/bin/jsencrypt.min.js"></script>
+<script type="text/javascript" src="./static/WebPageScripts/keyEncrypt.js" charset="UTF-8"></script>
+<script type="text/javascript" src="static/WebPageScripts/staff_portal/staff_portal.js"></script>
+<script type="text/javascript" src="./static/WebPageScripts/newOrders.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./static/WebPageScripts/clientHelp&isReadyAlerts.js" charset="UTF-8"></script>
+
+
+</html>

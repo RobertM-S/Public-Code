@@ -1,0 +1,45 @@
+#greybar {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: large;
+  font-family: Arial, sans-serif;
+}
+
+.yourorder {
+  position: absolute;
+  left: 20px;
+  top: -6px;
+  color: white;
+}
+
+#background {
+  position: absolute;
+  left: -10px;
+  top: -100px;
+}
+
+#BackToMenu {
+  position: absolute;
+  left: 1780px;
+  font-size: 1vw;
+  top: 25px;
+  color: white;
+}
+
+dt {
+  display: list-item;
+  list-style-image: url("../../WebPageImages/Basket/itemImage.png");
+  top: 10px;
+}
+
+input {
+  font-size: large;
+}

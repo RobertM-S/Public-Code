@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <title>Pending Tables</title>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/AuthenticateUser.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/requestUsername.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/getCookie.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/clearCookie.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/bower_components/jsencrypt/bin/jsencrypt.min.js"></script>
+    <script type="text/javascript" src="./static/WebPageScripts/keyEncrypt.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/keyDecrypt.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="static/WebPageScripts/pendingTables.js"></script>
+    <script type="text/javascript" src="./static/WebPageScripts/newOrders.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./static/WebPageScripts/clientHelp&isReadyAlerts.js" charset="UTF-8"></script>
+
+</head>
+<style type="text/css">
+    body {
+        background-color: #aaacab;
+        font-size: 18px;
+        min-height: 400px;
+        margin-bottom: 100px;
+        clear: both;
+    }
+    #topBar{
+        position:absolute;
+        left:0px;
+        top:0px;
+    }
+
+    .title{
+        position:absolute;
+        left:20px;
+        top:-6px;
+        color:white
+    }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 95%;
+        margin: 75px 0 0 25px;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #dddddd;
+    }
+    .LogOut{
+        position:relative;
+        left:1600px;
+        top:25px;
+        color:white
+
+    }
+
+    .button {
+        background-color: #808080;
+        border: none;
+        color: white;
+        padding: 15px 70px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 15px 20px;
+    }
+
+    .button:hover{
+        background-color: #555;
+    }
+
+    .button3 {
+        border: 2px solid #ba0000;
+        width: 100px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button3:hover {
+        background-color: #ba0000;
+        color: white;
+    }
+
+    .button4 {
+        border: 2px solid #786eff;
+        width: 100px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button4:hover {
+        background-color: #786eff;
+        color: white;
+    }
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #aaacab;
+        color: white;
+        text-align: center;
+    }
+    .checkbox {
+        padding: 15px 70px;
+    }
+    input[type="checkbox"] {
+        zoom: 1.5;
+    }
+    .alert {
+        position: fixed;
+        bottom: 0%;
+        width: 100%;
+        padding: 20px;
+        background-color: #2496ab;
+        color: white;
+    }
+</style>
+<div id='topBar' style="height:70px;width:100%;background:grey"></div>
+<h1 class='title' id="title">Pending Tables</h1>
+<div class="LogOut">
+    <button class="button3" onclick="window.location.assign('/Staff_Portal')">Staff Portal</button>
+    <button class="button4" style="alignment: right" onclick="clearCookie(socket)">Logout</button>
+</div>
+<body>
+<table id="orders">
+    <tr style="font-size: larger">
+        <th>Table Number</th>
+        <th>Status</th>
+        <th>Placed</th>
+        <th>Selected</th>
+    </tr>
+</table>
+<div class="footer">
+    <button type="button" class = "button" onclick="TakeOrder('orders')">Take Order</button>
+</div>
+
+<div class="alert" id="alert" hidden="true">
+    <span class="closebtn" onclick=hide()>&times;</span>
+    <strong style="font-size: 1vw;">Table Alert:</strong><p id="alertMessage" style="font-size: 1vw; right: auto">Table X needs Help</p>
+</div>
+</body>
+</html>

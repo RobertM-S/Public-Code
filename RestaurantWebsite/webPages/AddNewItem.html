@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>New Items</title>
+</head>
+
+<style type="text/css">
+    #topBar{
+        position:absolute;
+        left:0px;
+        top:0px;
+    }
+
+    .Buttons{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: x-large;
+        font-family: Arial, sans-serif;
+        clear: both;
+    }
+
+    .title{
+        position:absolute;
+        left:20px;
+        top:-6px;
+        color:white
+    }
+
+    #background{
+        position:absolute;
+        left:-10px;
+        top:-100px
+    }
+
+    .BackToMenu{
+        position:absolute;
+        left:1780px;
+        top:25px;
+        color:white
+
+    }
+
+
+    .button0 {
+        border: 2px solid #000000;
+        width: 175px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button0:hover {
+        background-color: #000000;
+        color: white;
+    }
+
+    .button1 {
+        border: 2px solid #4caf50;
+        width: 175px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button1:hover {
+        background-color: #4caf50;
+        color: white;
+    }
+
+    .button2 {
+        align-self: center;
+        border: 2px solid #008cba;
+        width: 175px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button2:hover {
+        background-color: #008cba;
+        color: white;
+    }
+
+    .button3 {
+        border: 2px solid #ba0000;
+        width: 175px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button3:hover {
+        background-color: #ba0000;
+        color: white;
+    }
+
+    .button4 {
+        border: 2px solid #786eff;
+        width: 100px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button4:hover {
+        background-color: #786eff;
+        color: white;
+    }
+
+    .LogOut{
+        position:absolute;
+        font-size: 1vw;
+        left:1600px;
+        top:25px;
+        color:white
+
+    }
+
+    .inputbox {
+        border-width: 5px;
+        font-size: x-large;
+    }
+
+    .check {
+        height: 20px;
+        width: 20px;
+    }
+
+    .drop {
+        font-size: x-large;
+    }
+
+</style>
+<body>
+<img id=background src=static/WebPageImages/LoginPage/Login_Banner.jpg style="width: 100%">
+<a href='https://www.freepik.com/vectors/food'>Food vector created by pch.vector - www.freepik.com</a>
+<div id='topBar' style="height:70px;width:100%;background:grey"></div>
+<h1 class='title' id="title">Staff LoginAdd Item</h1>
+<div class="LogOut">
+    <button class="button3" onclick="window.location.assign('/Staff_Portal')">Staff Portal</button>
+    <button class="button4" style="alignment: right" onclick="clearCookie(socket)">Logout</button>
+</div>
+<div class="Buttons" id="buttons">
+<form>
+    <lable for="ItemTitle">Title:</lable><br>
+    <input type="text" id="ItemTitle" class="inputbox" autocomplete="false"><br>
+    <lable for="description">Description:</lable><br>
+    <input type="text" id="description" class="inputbox" autocomplete="false"><br>
+    <lable for="price">Price:</lable><br>
+    <input type="number" id="price" class="inputbox" autocomplete="false"><br>
+    <lable for="category">Category:</lable><br>
+    <select id="category" class = "drop">
+        <option value="Starter">Starter</option>
+        <option value="Main">Main</option>
+        <option value="Desert">Desert</option>
+        <option value="Drink">Drink</option>
+    </select><br>
+    <lable for="Calories">Calories:</lable><br>
+    <input type="number" id="Calories" class="inputbox" autocomplete="false"><br><br>
+    <form id="Allergens">
+        Allergens:
+        <input type="checkbox" id="Nuts" class = "check">
+        <label for="Nuts">Nuts</label>
+        <input type="checkbox" id="lactose" class = "check">
+        <label for="lactose">Lactose</label>
+        <input type="checkbox" id="gluten" class = "check">
+        <label for="gluten">Gluten</label>
+        <input type="checkbox" id="egg" class = "check">
+        <label for="egg">Egg</label>
+    </form>
+    <br>
+    <input class = "drop" type="file" id="Image_input"/>
+    <br><br>
+    <button class = "drop" type="button" id="submit">Submit</button>
+</form>
+</div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/AuthenticateUser.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/requestUsername.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/getCookie.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/clearCookie.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/bower_components/jsencrypt/bin/jsencrypt.min.js"></script>
+<script type="text/javascript" src="./static/WebPageScripts/keyEncrypt.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/keyDecrypt.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/bower_components/socketio-file-upload/client.js"></script>
+<script type="text/javascript" src="static/WebPageScripts/AddNewItem.js"></script>
+</html>

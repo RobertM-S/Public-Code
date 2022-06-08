@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Order Confirmation</title>
+</head>
+
+<style type="text/css">
+
+    .button {
+        width: 100%;
+        border: none;
+        color: black;
+        margin-top: 10px;
+        padding: 10px 32px;
+        text-align: center;
+        font-size: 15px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        background-color: white;
+    }
+
+    .button0 {
+        border: 2px solid #000000;
+    }
+
+    .button0:hover {
+        background-color: #000000;
+        color: white;
+    }
+    .button1 {
+        border: 2px solid #4caf50;
+    }
+
+    .button1:hover {
+        background-color: #4caf50;
+        color: white;
+    }
+
+
+</style>
+
+<link rel="stylesheet" href="static/webPages/Basket/Basket_Style.css">
+<body>
+<img id=background src=static/WebPageImages/Basket/Banner.jpg style="width: 100%">
+<a href="http://www.freepik.com">Designed by upklyak / Freepik</a>
+<div id='greybar' style="height:70px;width:100%;background:grey"></div>
+<h1 class='yourorder'>Your Order</h1>
+<div id=BackToMenu onmouseover="this.style.fontSize='21px'" onmouseout="this.style.fontSize='16px'"><a  href="/">back to menu</a></div>
+
+
+
+<div id="orderArea" class="list">
+    <div>
+        <dl id="oldItems">
+        </dl>
+        <b id = "oldTotal"></b>
+    </div>
+    <div id="activeOrders">
+      <dl id="items">
+      </dl>
+          <b id = "total"></b>
+          <button id="confirm" class = "button button1">Confirm Order</button>
+    </div>
+    <button id="help" class = "button button0" >Get Help</button>
+</div>
+
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script type="text/javascript" src="/static/WebPageScripts/loginPage/getKey.js" charset="UTF-8"></script>
+
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/AuthenticateUser.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/requestUsername.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/getCookie.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/WebPageScripts/Cookies/clearCookie.js" charset="UTF-8"></script>
+<script type="text/javascript" src="static/WebPageScripts/Basket/display_order.js"></script>
+
+<script>
+  authenticateUser(socket)
+</script>
+</html>

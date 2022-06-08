@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/webPages/ManagerData/rtrData_Style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manager Data</title>
+    <meta charset="UTF-8">
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/AuthenticateUser.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/requestUsername.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/getCookie.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/clearCookie.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="static/WebPageScripts/bower_components/jsencrypt/bin/jsencrypt.min.js"></script>
+    <script type="text/javascript" src="./static/WebPageScripts/keyEncrypt.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/keyDecrypt.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="static/WebPageScripts/bower_components/chart.js/dist/Chart.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/ManagerData/rtrData.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/authenticateManager.js" charset="UTF-8"></script>
+</head>
+<div id='topBar' style="height:70px;width:100%;background:grey">
+    <div class="LogOut">
+        <button class="button3" onclick="window.location.assign('/Staff_Portal')">Staff Portal</button>
+        <button class="button4" style="alignment: right" onclick="clearCookie(socket)">Logout</button>
+    </div>
+</div>
+<h1 class='title' id="title">Manager Data</h1>
+
+<body>
+<div class="flex-container">
+    <div id = 'n-active' class="flex-child">
+        <b id = 'nA'></b>
+        <b id = 'total'></b>
+        <div style="overflow:auto;width: 500px;height: 200px">
+            <table id = "activeOrders">
+                <tr>
+                    <th>Table</th>
+                    <th>Taken</th>
+                    <th>Confirmed</th>
+                    <th>Time</th>
+                    <th>Paid</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id = 'staff-sales' class="flex-child">
+        <div style="overflow:auto;width: 500px;height: 200px">
+            <table id = "staff_Sales">
+                <tr>
+                    <th>Staff Account</th>
+                    <th>Total Sales</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id = 'item-order-numbers' class="flex-child">
+        <div style="overflow:auto;width: 500px;height: 200px">
+            <table id = "item-numbers">
+                <tr>
+                    <th>Item</th>
+                    <th>Total Sold</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div>
+    <canvas id="daily_data_chart" style="width: 300px; height: 100px; overflow: auto"></canvas>
+</div>
+</body>
+</html>

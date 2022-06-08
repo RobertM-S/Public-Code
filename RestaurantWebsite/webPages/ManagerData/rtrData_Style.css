@@ -1,0 +1,73 @@
+body {
+    background-color: #aaacab;
+}
+#topBar{
+    margin-bottom: 20px;
+    position:relative;
+    left:0px;
+    top:0px;
+}
+
+.title{
+    position:absolute;
+    left:20px;
+    top:-6px;
+    color:white
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+.LogOut{
+    position:relative;
+    left:1600px;
+    top:25px;
+    color:white
+
+}
+.button3 {
+    border: 2px solid #ba0000;
+    width: 100px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.button3:hover {
+    background-color: #ba0000;
+    color: white;
+}
+
+.button4 {
+    border: 2px solid #786eff;
+    width: 100px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.button4:hover {
+    background-color: #786eff;
+    color: white;
+}
+
+.flex-container {
+    position: relative;
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}
+
+.flex-child:first-child {
+    margin-right: 20px;
+}

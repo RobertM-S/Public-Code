@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <link rel="stylesheet" href="static/webPages/Menu/Menu_Style.css">
+    <meta charset="UTF-8" />
+    <title>Menu</title>
+    <div id="login+basket">
+    </div>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-size: 5vw">Menu</h1>
+
+    <div class="container">
+      <button id="ShowAll" class="button button0">All</button>
+      <button id="ShowStarters" class="button button1">Starters</button>
+      <button id="ShowMains" class="button button2">Mains</button>
+      <button id="ShowDeserts" class="button button3">Desserts</button>
+      <button id="ShowDrinks" class="button button4">Drinks</button>
+    </div>
+
+    <div class="container" style="margin-top: 15px">
+      <form id="userQuery">
+        <label for="SearchQuery"></label><input type="text" style="font-size: x-large" id="SearchQuery" />
+        <button id="Search" type="button" value="SearchIcon">
+          <img typeof="jpeg" src="static/WebPageImages/Menu/SearchIcon.jpg" height="25" width="25" />
+        </button>
+      </form>
+      <br>
+      <form id="allergie_Filter">
+        Filter out
+        <input type="checkbox" id="nut_Filter" style="width:30px; height:30px;" >
+        <label for="nut_Filter">Nuts</label>
+        <input type="checkbox" id="lactose_Filter" style="width:30px; height:30px;">
+        <label for="lactose_Filter_Filter">Lactose</label>
+        <input type="checkbox" id="gluten_Filter" style="width:30px; height:30px;">
+        <label for="gluten_Filter">Gluten</label>
+        <input type="checkbox" id="egg_Filter" style="width:30px; height:30px;">
+        <label for="egg_Filter">Egg</label>
+      </form>
+      <form id="low_high_filter">
+        Filter from low to high:
+        <input type="checkbox" id="price_low" style="width:30px; height:30px;">
+        <label for="price_low">Prices</label>
+        <input type="checkbox" id="calories_low" style="width:30px; height:30px;">
+        <label for="calories_low">Calories</label>
+      </form>
+    </div>
+
+
+    <div id="items"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/AuthenticateUser.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/requestUsername.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/getCookie.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Cookies/clearCookie.js" charset="UTF-8"></script>
+
+    <script type="text/javascript" src="/static/WebPageScripts/Menu/menuSetLayout.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Menu/menuAddItems.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Menu/menu_button_clicked.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Menu/AddToBasket.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/loginPage/getKey.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/Menu/BasketPopup.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="static/WebPageScripts/bower_components/jsencrypt/bin/jsencrypt.min.js"></script>
+    <script type="text/javascript" src="./static/WebPageScripts/keyEncrypt.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/static/WebPageScripts/keyDecrypt.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="static/WebPageScripts/Menu/Menu.js"></script>
+  </body>
+</html>
